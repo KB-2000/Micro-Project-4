@@ -1,15 +1,16 @@
 let dot = true;
 function btn_click(id){
     const input = document.getElementById("inp");
-    
+
+    if(input.value.length>=10){
+        document.getElementById("inp").style.fontSize = 55 - input.value.length  + "px";
+    }else{
+        document.getElementById("inp").style.fontSize = "55px";
+    }
     
     if(id=="0" || id=="1" || id=="2" || id=="3" || id=="4" || id=="5" || id=="6" || id=="7" || id=="8" || id=="9"){
         input.value+=document.getElementById(id).innerText;
-        if(input.value.length>10){
-            document.getElementById("inp").style.fontSize = 55 - input.value.length  + "px";
-        }else{
-            document.getElementById("inp").style.fontSize = "55px";
-        }
+        
     }else if(id=="+" || id=="*" || id=="/"){
         const n = input.value[input.value.length - 1];
         if(!isNaN(n)){
@@ -69,11 +70,7 @@ function btn_click(id){
         }
     }else if(id=="del"){
         input.value=input.value.substring(0,input.value.length-1)
-        if(input.value.length>10){
-            document.getElementById("inp").style.fontSize = 55 - input.value.length + "px";
-        }else{
-            document.getElementById("inp").style.fontSize = "55px";
-        }
+    
     }else if(id=="reset"){
         input.value = "";
     }
